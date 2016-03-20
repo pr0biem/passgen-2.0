@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Passgen</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <h1 class="welcome"> Welcome to passgen</h1>
+    <% if @keyword %>
+      <% generate %>
+      <%= @display %>
+    <% end %>
+    <%= render "password_form" %>
+  </body>
+</html>
