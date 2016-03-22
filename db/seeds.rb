@@ -7961,17 +7961,34 @@
   66665 => "??",
   66666 => "@",
 }
+count = 5
+9.times do |x|
+  Length.create(
+    value: count,
+    keytype: 'Words'
+  )
+  count += 1
+end
+
+count2 = 5
+21.times do
+  Length.create(
+    value: count2, 
+    keytype: 'Letters'
+  )
+  count2 += 1
+end
 
 @keywords.each do |key, value|
   Keyword.create(
     id: key,
     value: value
-    )
+  )
 end
 
 @sym.each do |key, value|
   Keyword.create(
     id: key,
     value: value
-    )
+  )
 end

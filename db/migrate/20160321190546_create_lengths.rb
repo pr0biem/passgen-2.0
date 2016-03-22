@@ -1,6 +1,6 @@
-class CreateKeywords < ActiveRecord::Migration
+class CreateLengths < ActiveRecord::Migration
   def change
-    create_table :keywords do |t|
+    create_table :lengths do |t|
       t.string :value
       t.string :keytype
       t.timestamps null: false

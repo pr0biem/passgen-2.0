@@ -182,10 +182,3 @@
   611 => ",",
   612 => ".",
 }
-
-@sym.each do |key, value|
-  Keyword.create(
-    id: key,
-    value: value
-    )
-end

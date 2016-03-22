@@ -1,0 +1,2 @@
+<%= select_tag 'length_of_password', options_for_select(@length.collect { |length| 
+[length.value, length.value] }, selected: params[:length_of_password]), id: 'length_of_word' %>

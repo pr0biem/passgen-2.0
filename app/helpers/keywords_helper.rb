@@ -16,22 +16,49 @@ module KeywordsHelper
     @roll.to_i
   end
 
+  def roll_3_dice
+    @roll = ""
+    3.times do
+      @roll << true_rand(6).to_s
+    end
+    @roll.to_i
+  end
+
   def generate
+    separator = params[:separator]
     pass_length = params[:length_of_password].to_i
-    if params[:separator].length <= 3
-      if pass_length <= 13 && pass_length > 0
-        count = 0
-        @display = ""
-        until count == pass_length
-          roll_5_dice
-          @display << @keyword.find(@roll).value + params[:separator]
-          count += 1
+    if params[:l_or_w] == 'Words'
+      if separator.length <= 3 && separator.length >= 0
+        if pass_length <= 13 && pass_length > 0
+          count = 0
+          @display = ""
+          until count == pass_length
+            roll_5_dice
+            @display << @keyword.find(@roll).value + separator
+            count += 1
+          end
+        else
+          @display = "Minumum of 1 and maximum of 13 words allowed."
         end
       else
-        @display = "Minumum of 1 and maximum of 13 words allowed."
+        @display = "Your separator must be 3 characters or less"
       end
-    else
-      @display = "Your separator must be 3 characters or less"
+    elsif params[:l_or_w] == 'Letters'
+      if separator.length <= 3 && separator.length >= 0
+        if pass_length <= 25 && pass_length > 0
+          count = 0
+          @display = ""
+          until count == pass_length
+            roll_3_dice
+            @display << @keyword.find(@roll).value + separator
+            count += 1
+          end
+        else
+          @display = "Minumum of 1 and maximum of 25 letters allowed."
+        end
+      else
+        @display = "Your separator must be 3 characters or less"
+      end
     end
 
   end
