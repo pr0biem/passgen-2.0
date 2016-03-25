@@ -20,4 +20,10 @@ class KeywordsController < ApplicationController
     end
   end
 
+  def generate
+    @keyword = Keyword.all
+    @show = "show"
+    @display = view_context.generate
+  end
+
 end

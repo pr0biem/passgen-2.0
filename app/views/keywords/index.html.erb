@@ -8,10 +8,9 @@
   </head>
   <body>
     <h1 class="welcome"> Welcome to passgen</h1>
-    <% if @keyword %>
-      <% generate %>
-      <%= @display %>
-    <% end %>
     <%= render "password_form" %>
+    <br/>
+    <br/>
+    <h2 id="display"><%= @display %></h2>
   </body>
 </html>

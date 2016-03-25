@@ -60,7 +60,7 @@ module KeywordsHelper
         @display = "Your separator must be 3 characters or less"
       end
     end
-
+    return @display
   end
 
 end
